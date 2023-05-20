@@ -58,7 +58,7 @@ router.get('/getSnRegistrationFiltered', async (req, res) => {
 
 router.get('/getSnPurchases', async (req, res) => {
     try {
-        snPool.query('SELECT `Purchase No` AS `Purchase_No`, `Quantity`, `Date`, `Name`, `Sn`, `Price`, `Lot #` AS `Lot_Num`, `Mass`, `Comments`, `Amount` FROM `Depot` natural join `Registration`', (err, result) => {
+        snPool.query('SELECT `Purchase No` AS `Purchase_No`, `Date`, `Name`, `Mass`, `Sn`, `Price`, `Amount`, `Lot #` AS `Lot_Num`, `Comments` FROM `Depot` natural join `Registration`', (err, result) => {
             res.json({SnPurchases: result})
         })
     } catch (error) {
@@ -124,7 +124,7 @@ router.get('/getTaRegistrationFiltered', async (req, res) => {
 
 router.get('/getTaPurchases', async (req, res) => {
     try {
-        taPool.query('SELECT `Purchase No` AS `Purchase_No`, `Quantity`, `Date`, `Name`, `Sn`, `Price`, `Lot #` AS `Lot_Num`, `Mass`, `Comments`, `Amount`, `Nb`, `Bq` FROM `Depot` natural join `Registration`', (err, result) => {
+        taPool.query('SELECT `Purchase No` AS `Purchase_No`, `Date`, `Name`, `Mass`, `Sn`, `Nb`, `Bq`, `Price`, `Amount`, `Lot #` AS `Lot_Num`, `Comments` FROM `Depot` natural join `Registration`', (err, result) => {
             res.json({TaPurchases: result})
         })
     } catch (error) {
@@ -188,7 +188,7 @@ router.get('/getWo3RegistrationFiltered', async (req, res) => {
 
 router.get('/getWo3Purchases', async (req, res) => {
     try {
-        wo3Pool.query('SELECT `Purchase No` AS `Purchase_No`, `Quantity`, `Date`, `Name`, `Sn`, `Price`, `Lot #` AS `Lot_Num`, `Comments`, `Mass`, `Amount` FROM `Depot` natural join `Registration`', (err, result) => {
+        wo3Pool.query('SELECT `Purchase No` AS `Purchase_No`, `Date`, `Name`, `Mass`, `Sn`, `Price`, `Amount`, `Lot #` AS `Lot_Num`, `Comments` FROM `Depot` natural join `Registration`', (err, result) => {
             res.json({Wo3Purchases: result})
         })
     } catch (error) {
